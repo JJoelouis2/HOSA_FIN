@@ -353,8 +353,8 @@ class HosaUI(FloatLayout):
         if self.track_results not in self.children:
             self.add_widget(self.track_results)
         
-        if fatigue > fatigue_threshold:
-                self.fatigue_notification()
+        if hasattr(self, 'fatigue') and fatigue > fatigue_threshold:
+            self.fatigue_notification()
 
         # Ensure camera is fully released before switching
         Clock.schedule_once(self.off_interval, 0.1)
